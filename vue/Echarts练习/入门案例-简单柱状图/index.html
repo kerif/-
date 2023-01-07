@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Echarts</title>
+    <!-- 引入Vue2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <!-- 引入Echarts -->
+    <script src="echarts.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <div id = "echarts">
+            <!-- 柱状图 -->
+            <div id = "Histogram" style="width: 600px; height: 400px; background-color: pink;"></div>
+            <!-- 饼状图 -->
+            <div id = "pieChart">{{pieChart}}</div>
+            <!-- 折线图 -->
+            <div id = "lineChart">{{lineChart}}</div>
+            <!-- 散点图 -->
+            <div id = "scatter">{{scatter}}</div>
+        </div>
+    </div>
+</body>
+<script type = "text/javascript">
+    Vue.config.productionTip = false;
+    new Vue({
+    el: "#app",
+    data() {
+        return {
+            pieChart: "饼状图",
+            lineChart: "折线图",
+            scatter: "散点图"
+        }
+    }
+    })
+    // 普通多柱状图数据展示
+    var myEcharts = echarts.init(document.getElementById("Histogram"));
+    var option = {
+        title: {
+            text: "Echarts入门",
+        },
+        legend: {
+            data: ['旺季销量', '淡季销量'],
+        },
+        xAxis: {
+            data: ['Mon', 'Tue', 'Wed', 'Tur', 'Fir', 'Sat', 'Sun']
+        },
+        yAxis: {},
+        series: [{
+            name: "旺季销量",
+            type: 'bar',
+            data: [5, 10, 20, 15, 30, 25, 35],
+            
+        },
+        {
+            name: "淡季销量",
+            type: 'bar',
+            data: [3,5,6,3,7,6,3]
+        }
+    ]
+    }
+    myEcharts.setOption(option)
+</script>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>水平垂直居中</title>
+</head>
+<body>
+    <!-- 宽度确定的块级元素 -->
+    <div id = "father1" style = "width: 200px; height: 200px; background-color: pink;">
+        <div id = "sureBlock" style = "width: 100px; height: 100px; background-color: red;"></div>
+    </div>
+
+    <div id = "father2" style = "width: 200px; height: 200px; background-color: grey;">
+    <div id = "Block2" style = "width: 100px; height: 100px; background-color: red;">块级元素</div>
+    </div>
+
+    <!-- 内联元素 -->
+    <div id ="letInline" style = "width: 200px; height: 200px; background-color: skyblue;">
+        <span id = "inlineSpan">水平居中span行内元素</span>
+    </div>
+
+    <div id = "letInput" style = "width: 200px; height: 200px; background-color: purple;">
+        <input type="text" value="水平居中行内元素">
+    </div>
+
+    <!-- 宽度不确定的块级元素水平居中 -->
+    <div id = "f1" style = "width: 200px; height: 200px; background-color: pink;">
+        <div id = "s1" style = " background-color: yellow; min-width:16px;max-width: 80px; max-height: 50px;">我没有设置宽度</div>
+    </div>
+</body>
+<style>
+    /* 内联元素水平居中 */
+    #letInline {
+        text-align: center;
+    }
+    #inlineSpan {
+        /* 内联元素宽高由文字内容决定 */
+        background-color: blue;
+    }
+    #letInput {
+        text-align: center;
+    }
+    /* 宽高确定块级元素水平居中 */
+    #sureBlock {
+        margin: 0 auto;
+    }
+
+    /* 宽高确定块级元素水平垂直居中 */
+    #father2 {
+        position: relative;
+    }
+    #Block2 {
+        position: absolute;
+        left: calc(50% - 50px);
+        top: calc(50% - 50px);
+        /* margin-left: -100px;
+        margin-top: -100px; */
+    }
+
+    /* 宽度不确定的块级元素 */
+    #f1 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+</html>

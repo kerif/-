@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>watch</title>
+    <!-- 引入Vue2 -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+</head>
+<body>
+    <div id = "root">
+        <span>今天的天气很<span v-if = "isHot">炎热</span><span v-if = "!isHot">寒冷</span>
+    </span>
+        <button @click = "changeTemper">切换</button>
+    </div>
+</body>
+<script type = "text/javascript">
+    Vue.config.productionTip = false;
+    const vm = new Vue({
+        el: '#root',
+        data() {
+            return {
+                isHot: true,
+            }
+        },
+        methods: {
+            changeTemper() {
+                this.isHot = !this.isHot;
+            }
+        },
+        /* watch: {
+            isHot: {
+                // immediate: true,
+                handler(newValue, oldValue) {
+                    console.log("isHot被改变了", this.isHot);
+                    console.log(newValue, oldValue);
+                }
+            }
+        } */
+
+    })
+    vm.$watch('isHot', {
+        immediate: false,
+        handler(newValue, oldValue) {
+            console.log("isHot被改变了");
+            console.log(newValue, oldValue);
+        }
+    })
+</script>
+</html>

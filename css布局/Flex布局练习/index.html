@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flex</title>
+</head>
+<body>
+    <div id = "dad">
+        <div id = "son1">son1</div>
+        <div id = "son2">son2</div>
+        <div id = "son3">son3</div>
+        <!-- <div id = "son4">son4</div>
+        <div id = "son5">son5</div>
+        <div id = "son6">son6</div> -->
+    </div>
+</body>
+<style>
+    #dad {
+        width: 1000px;
+        height: 100px;
+        background-color: pink;
+        display: flex;
+        flex-direction: row;
+        /* flex-wrap: wrap; */
+        justify-content: center;
+        align-items: stretch;
+    }
+    #son1 {
+        width: 100px;
+        /* height: 50px; */
+        background-color: purple;
+    }
+    #son2 {
+        width: 150px;
+        /* height: 30px; */
+        background-color: yellow;
+    }
+    #son3 {
+        width: 200px;
+        /* height:30px; */
+        background-color: red;
+    }
+    #son4 {
+        width: 400px;
+        height: 50px;
+        background-color: skyblue;
+    }
+    #son5 {
+        width: 450px;
+        height: 30px;
+        background-color: yellow;
+    }
+    #son6 {
+        width: 500px;
+        height:30px;
+        background-color: red;
+    }
+</style>
+</html>
